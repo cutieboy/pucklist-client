@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react'
-import { Form, Button, Card, Alert } from 'react-bootstrap'
+import { Alert } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
+import '../styles/login.css'
 
 function Signup() {
     const firstNameRef = useRef()
@@ -50,45 +51,45 @@ function Signup() {
     
     return (
         <>
-            <Card>
-                <Card.Body>
+            <div className="input-root">
+                <div className="input-container signup-container">
                     <h2 className="text-center mb-4">Sign Up</h2>
                     {error && <Alert variant="danger">{error}</Alert>}
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group id="firstName">
-                            <Form.Label>First Name</Form.Label>
-                            <Form.Control ref={firstNameRef} type="text" required />
-                        </Form.Group>
-                        <Form.Group id="lastName">
-                            <Form.Label>Last Name</Form.Label>
-                            <Form.Control ref={lastNameRef} type="text" required />
-                        </Form.Group>
-                        <Form.Group id="playerNumber">
-                            <Form.Label>Player Number</Form.Label>
-                            <Form.Control ref={playerNumberRef} type="text" required />
-                        </Form.Group>
-                        <Form.Group id="phoneNumber">
-                            <Form.Label>Phone Number</Form.Label>
-                            <Form.Control ref={phoneNumberRef} type="text" required />
-                        </Form.Group>
-                        <Form.Group id="email">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control ref={emailRef} type="email" required />
-                        </Form.Group>
-                        <Form.Group id="password">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control ref={passwordRef} type="password" required />
-                        </Form.Group>
-                        <Form.Group id="password-confirmation">
-                            <Form.Label>Password Confirmation</Form.Label>
-                            <Form.Control ref={passwordConfirmRef} type="password" required />
-                        </Form.Group>
-                        <Button disable={loading} className="w-100 mb-4 mt-4" type="submit">Sign Up</Button>
-                    </Form>
-                </Card.Body>
-            </Card>
-            <div className="w-100 text-center mt-2">
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-group" id="firstName">
+                            <label>First Name</label>
+                            <input ref={firstNameRef} type="text" required />
+                        </div>
+                        <div className="form-group" id="lastName">
+                            <label>Last Name</label>
+                            <input ref={lastNameRef} type="text" required />
+                        </div>
+                        <div className="form-group" id="playerNumber">
+                            <label>Player Number</label>
+                            <input ref={playerNumberRef} type="text" required />
+                        </div>
+                        <div className="form-group" id="phoneNumber">
+                            <label>Phone Number</label>
+                            <input ref={phoneNumberRef} type="text" required />
+                        </div>
+                        <div className="form-group" id="email">
+                            <label>Email</label>
+                            <input ref={emailRef} type="email" required />
+                        </div>
+                        <div className="form-group" id="password">
+                            <label>Password</label>
+                            <input ref={passwordRef} type="password" required />
+                        </div>
+                        <div className="form-group" id="password-confirmation">
+                            <label>Password Confirmation</label>
+                            <input ref={passwordConfirmRef} type="password" required />
+                        </div>
+                        <button disable={loading} type="submit">Sign Up</button>
+                    </form>
+                </div>
+                <div className="input-nav">
                 Already have an account? <Link to="/login">Log In</Link>
+                </div>
             </div>
         </>
     )

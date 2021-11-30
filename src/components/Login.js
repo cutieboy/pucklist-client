@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react'
-import { Form, Button, Card, Alert } from 'react-bootstrap'
+import { Alert } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
+import '../styles/login.css'
 
 function Login() {
     const emailRef = useRef()
@@ -27,31 +28,29 @@ function Login() {
     }
     
     return (
-        <>
-            <Card>
-                <Card.Body>
-                    <h2 className="text-center mb-4">Login</h2>
-                    {error && <Alert variant="danger">{error}</Alert>}
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group id="email">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control ref={emailRef} type="email" required />
-                        </Form.Group>
-                        <Form.Group id="password">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control ref={passwordRef} type="password" required />
-                        </Form.Group>
-                        <Button disable={loading} className="w-100 mb-4 mt-4" type="submit">Login</Button>
-                        <div className="w-100 mt-1 mb-1 text-center">
-                            <Link to="forgot-password">Forgot Password?</Link>
-                        </div>
-                    </Form>
-                </Card.Body>
-            </Card>
-            <div className="w-100 text-center mt-2">
+        <div className="input-root">
+            <div className="login-container input-container">
+                <h2>Login</h2>
+                {error && <Alert variant="danger">{error}</Alert>}
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group" id="email">
+                        <label>Email</label>
+                        <input ref={emailRef} type="email" required />
+                    </div>
+                    <div className="form-group" id="password">
+                        <label>Password</label>
+                        <input ref={passwordRef} type="password" required />
+                    </div>
+                    <button disable={loading} type="submit">Login</button>
+                    <div>
+                        <Link to="forgot-password">Forgot Password?</Link>
+                    </div>
+                </form>
+            </div>
+            <div className="input-nav">
                 Don't have an account? <Link to="/signup">Sign Up</Link>
             </div>
-        </>
+        </div>
     )
 }
 
