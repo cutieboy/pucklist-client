@@ -1,9 +1,3 @@
-:root {
-    --darkbg: #1A2E4A;
-    --lightblue: #2D5B75;
-    --lightbluehover: #3c799c;
-}
-
 .input-root {
     display: flex;
     justify-content: center;
@@ -46,6 +40,7 @@ form {
 }
 
 label {
+    color: var(--lightblue);
     margin-bottom: 6px;
 }
 
@@ -53,7 +48,7 @@ input {
     padding: 10px;
     border: 1px solid #bbb;
     border-radius: 3px;
-    height: 35px;
+    height: 20px;
 }
 
 input:focus {
@@ -70,12 +65,13 @@ body {
     background: var(--darkbg)
 }
 
-a {
-    color: var(--lightblue);
+.input-link {
+    text-decoration: none;
+    color: var(--lightbluehover);
 }
 
-a:hover {
-    color: var(--lightbluehover);
+.input-link:hover {
+    color: var(--lighterblue);
 }
 
 .alt-text {
@@ -89,7 +85,9 @@ button {
     margin-bottom: 10px;
     margin-top: 10px;
     color: white;
-    border-radius: 2px;
+    border-radius: 3px;
+    height: 40px;
+    cursor: pointer;
     padding-top: 5px;
     padding-bottom: 5px;
     transition: background 0.1s ease;

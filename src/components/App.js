@@ -8,6 +8,9 @@ import UpdateProfile from './UpdateProfile'
 import ForgotPassword from './ForgotPassword'
 import UserData from './UserData'
 
+//Styles
+import '../styles/App.css'
+
 function App() {
   return (
       <div className="App">

@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react'
 import { Alert } from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
 import '../styles/login.css'
@@ -88,7 +87,7 @@ function Signup() {
                     </form>
                 </div>
                 <div className="input-nav">
-                Already have an account? <Link to="/login">Log In</Link>
+                Already have an account? <Link className="input-link" to="/login">Log In</Link>
                 </div>
             </div>
         </>

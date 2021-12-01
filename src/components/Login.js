@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react'
 import { Alert } from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
 import '../styles/login.css'
@@ -43,12 +42,12 @@ function Login() {
                     </div>
                     <button disable={loading} type="submit">Login</button>
                     <div>
-                        <Link to="forgot-password">Forgot Password?</Link>
+                        <Link className="input-link" to="forgot-password">Forgot Password?</Link>
                     </div>
                 </form>
             </div>
             <div className="input-nav">
-                Don't have an account? <Link to="/signup">Sign Up</Link>
+                Don't have an account? <Link className="input-link" to="/signup">Sign Up</Link>
             </div>
         </div>
     )

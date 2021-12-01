@@ -1,0 +1,12 @@
+:root {
+    font-family: 'Rubik';
+    --darkblue: #1A2E4A;
+    --lightblue: #2D5B75;
+    --lightbluehover: #3c799c;
+    --lighterblue: #4F8E98;
+}
+
+body {
+    margin: 0;
+    background: var(--darkblue);
+}

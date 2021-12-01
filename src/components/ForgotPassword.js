@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react'
 import { Alert } from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { useAuth } from '../contexts/AuthContext'
 import { Link } from 'react-router-dom'
 
@@ -39,7 +38,7 @@ function ForgotPassword() {
                         </div>
                         <button disable={loading} type="submit">Reset Password</button>
                         <div className="input-nav">
-                            <Link to="/login">Back to Login</Link>
+                            <Link className="input-link" to="/login">Back to Login</Link>
                         </div>
                     </form>
                 </div>

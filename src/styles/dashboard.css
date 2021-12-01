@@ -1,0 +1,13 @@
+.dashboard {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+}
+
+.content-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
