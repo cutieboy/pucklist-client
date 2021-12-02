@@ -1,12 +1,23 @@
 :root {
-    font-family: 'Rubik';
-    --darkblue: #1A2E4A;
-    --lightblue: #2D5B75;
-    --lightbluehover: #3c799c;
-    --lighterblue: #4F8E98;
+  font-family: "Rubik";
+  --darkblue: #1a2e4a;
+  --lightblue: #2d5b75;
+  --lightbluehover: #3c799c;
+  --lighterblue: #4f8e98;
+  --gray: #e5e1e7;
+  --darkgray: #515151;
+  --paleblue: #e4f2ff;
 }
 
 body {
-    margin: 0;
-    background: var(--darkblue);
+  margin: 0;
+  background: var(--darkblue);
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--gray);
+  width: 100%;
 }

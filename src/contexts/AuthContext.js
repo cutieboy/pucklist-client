@@ -50,6 +50,15 @@ export function AuthProvider({ children }) {
         return currentUser.updatePassword(password)
     }
 
+    async function getUserData() {
+        const emailAPI = `http://localhost:5000/api/players/${currentUser.email}`
+
+        const response = await fetch(emailAPI)
+        const data = await response.json()
+
+        return data
+    }
+
     function returnUserData() {
         return console.log(currentUser)
         // return currentUser.getIdToken().then((val) => {
@@ -74,7 +83,8 @@ export function AuthProvider({ children }) {
         forgotPassword,
         updateEmail,
         updatePassword,
-        returnUserData
+        returnUserData,
+        getUserData
     }
 
     return (

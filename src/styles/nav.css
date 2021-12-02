@@ -1,59 +1,90 @@
 .nav-container {
-    height: 100vh;
-    min-width: 350px;
-    background: var(--darkblue);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-width: 350px;
+  background: var(--darkblue);
 }
 
 .nav-title {
-    height: 60px;
-    margin: 0;
-    width: calc(100% - 40px);
-    color: white;
-    padding-top: 20px;
-    padding-left: 40px;
-    text-align: left;
-    font-size: 40px;
-    font-weight: 600;
+  height: 60px;
+  margin: 0;
+  width: calc(100% - 40px);
+  color: white;
+  padding-top: 20px;
+  padding-left: 40px;
+  text-align: left;
+  font-size: 40px;
+  font-weight: 600;
 }
 
 .nav-link-container {
-    text-decoration: none;
-    color: white;
-    display: flex;
-    align-items: center;
-    width: calc(100% - 40px);
-    height: 50px;
-    transition: all 0.05s ease;
-    cursor: pointer;
-    padding-left: 40px;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  width: calc(100% - 40px);
+  height: 50px;
+  transition: all 0.05s ease;
+  cursor: pointer;
+  padding-left: 40px;
 }
 
 .nav-link-container:hover {
-    background: var(--lightbluehover);
+  background: var(--lightbluehover);
 }
 
 .nav-icon-container {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 40px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 40px;
 }
 
 .nav-link-text {
-    font-size: 18px;
-    font-weight: 300;
+  font-size: 18px;
+  font-weight: 300;
 }
 
 .nav-section-title {
-    width: calc(100% - 40px);
-    padding-left: 40px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    color: var(--lighterblue);
+  width: calc(100% - 40px);
+  padding-left: 40px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: var(--lighterblue);
 }
 
 .top-nav-container {
-    width: 100%;
-    height: 50px;
-    border: 1px solid black;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 60px;
+}
+
+.profile-container {
+  width: 300px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.profile-container p {
+  color: var(--darkblue);
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+.profile-pic {
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--darkblue);
+}
+
+.logout {
+  margin-top: auto;
 }
