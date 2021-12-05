@@ -19,7 +19,7 @@ function Login() {
             setError('')
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value)
-            history.push("/games")
+            history.push("/")
         } catch(err) {
             setError(err.message)
         }

@@ -37,27 +37,26 @@ function UpdateProfile() {
     
     return (
         <>
-            <Card>
-                <Card.Body>
-                    <h2 className="text-center mb-4">Login</h2>
+            <div className="input-root">
+                <div className="input-container">
                     {error && <Alert variant="danger">{error}</Alert>}
-                    <Form onSubmit={handleUpdateProfile}>
-                        <Form.Group id="email">
+                    <form onSubmit={handleUpdateProfile}>
+                        <div className="form-group" id="email">
                             <Form.Label>Email</Form.Label>
                             <Form.Control ref={emailRef} type="email" defaultValue={currentUser.email} required />
-                        </Form.Group>
-                        <Form.Group id="password">
+                        </div>
+                        <div className="form-group" id="password">
                             <Form.Label>New Password</Form.Label>
                             <Form.Control ref={passwordRef} type="password" placeholder="Leave blank to keep the same" />
-                        </Form.Group>
-                        <Form.Group id="password">
+                        </div>
+                        <div className="form-group" id="password">
                             <Form.Label>Confirm Password</Form.Label>
                             <Form.Control ref={confirmPasswordRef} type="password" placeholder="Passwords must match" />
-                        </Form.Group>
-                        <Button disable={loading} className="w-100 mb-4 mt-4" type="submit">Update</Button>
-                    </Form>
-                </Card.Body>
-            </Card>
+                        </div>
+                        <button disable={loading} className="input-link" style={{color: 'white'}} type="submit">Update</button>
+                    </form>
+                </div>
+            </div>
             <div className="w-100 text-center mt-2">
                 <Link to="/">Cancel</Link>
             </div>

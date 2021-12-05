@@ -1,7 +1,5 @@
 import React from 'react'
 
-import TopNav from './TopNav'
-
 function Games() {
     return (
         <div className="dashboard">

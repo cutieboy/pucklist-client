@@ -9,7 +9,7 @@ function Stats() {
 
     const API = 'http://localhost:5000/api/stats'
 
-    const loadStandingsData = async(API) => {
+    const loadStatsData = async(API) => {
         const response = await fetch(API)
         const data = await response.json()
 
@@ -20,7 +20,7 @@ function Stats() {
     }
 
     useEffect(() => {
-        loadStandingsData(API)
+        loadStatsData(API)
     }, [])
 
     if(isLoading) {
@@ -51,7 +51,7 @@ function Stats() {
                     {playerData.map((player, i) => {
                         if(i % 2) {
                             return <div className="player-container player-container-odd">
-                            <p className="table-row table-large-column" style={{color: 'var(--lightblue)'}}><strong>{player.name}</strong></p>
+                            <p className="table-row table-large-column" style={{color: 'var(--lightblue)'}}>{player.name}</p>
                             <p className="table-row table-small-column">{player.number}</p>
                             <p className="table-row table-small-column">{player.gamesPlayed}</p>
                             <p className="table-row table-small-column">{player.goals}</p>
@@ -69,7 +69,7 @@ function Stats() {
                         }
 
                         return <div className="player-container">
-                            <p className="table-row table-large-column" style={{color: 'var(--lightblue)'}}><strong>{player.name}</strong></p>
+                            <p className="table-row table-large-column" style={{color: 'var(--lightblue)'}}>{player.name}</p>
                             <p className="table-row table-small-column">{player.number}</p>
                             <p className="table-row table-small-column">{player.gamesPlayed}</p>
                             <p className="table-row table-small-column">{player.goals}</p>
