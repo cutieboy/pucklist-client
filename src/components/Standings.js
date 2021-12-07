@@ -39,8 +39,8 @@ function Standings() {
                         <p className="table-column table-small-column">L</p>
                         <p className="table-column table-small-column">T</p>
                         <p className="table-column table-small-column">OTL</p>
-                        <p className="table-column table-small-column">Tie Breaker</p>
                         <p className="table-column table-small-column">Streak</p>
+                        <p className="table-column table-small-column">Tie Breaker</p>
                         <p className="table-column table-small-column">PTS</p>
                     </div>
                     {standingsData.map((team, i) => {

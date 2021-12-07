@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-import TopNav from './TopNav'
+//Components
 import Loader from './Loader'
 
 function Stats() {
