@@ -81,11 +81,16 @@
   flex: 2;
 }
 
+.table-largest-column {
+  flex: 3;
+}
+
 .player-container {
   display: flex;
   flex-direction: row;
   height: 50px;
   align-items: center;
+  background: white;
 }
 
 .player-container-odd {
