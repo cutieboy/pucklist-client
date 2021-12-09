@@ -43,15 +43,15 @@ function UpdateProfile() {
                     <form onSubmit={handleUpdateProfile}>
                         <div className="form-group" id="email">
                             <Form.Label>Email</Form.Label>
-                            <Form.Control ref={emailRef} type="email" defaultValue={currentUser.email} required />
+                            <Form.Control className="auth-input" ref={emailRef} type="email" defaultValue={currentUser.email} required />
                         </div>
                         <div className="form-group" id="password">
                             <Form.Label>New Password</Form.Label>
-                            <Form.Control ref={passwordRef} type="password" placeholder="Leave blank to keep the same" />
+                            <Form.Control className="auth-input" ref={passwordRef} type="password" placeholder="Leave blank to keep the same" />
                         </div>
                         <div className="form-group" id="password">
                             <Form.Label>Confirm Password</Form.Label>
-                            <Form.Control ref={confirmPasswordRef} type="password" placeholder="Passwords must match" />
+                            <Form.Control className="auth-input" ref={confirmPasswordRef} type="password" placeholder="Passwords must match" />
                         </div>
                         <button disable={loading} className="input-link" style={{color: 'white'}} type="submit">Update</button>
                     </form>

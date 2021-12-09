@@ -44,7 +44,7 @@ label {
   margin-bottom: 6px;
 }
 
-input {
+.auth-input {
   padding: 10px;
   border: 1px solid #bbb;
   border-radius: 3px;
@@ -78,7 +78,7 @@ body {
   color: white;
 }
 
-button {
+.auth-button {
   width: 100%;
   background: var(--lightblue);
   border: 0;
@@ -93,7 +93,7 @@ button {
   transition: background 0.1s ease;
 }
 
-button:hover {
+.auth-button:hover {
   background: var(--lightbluehover);
 }
 

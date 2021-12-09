@@ -34,11 +34,11 @@ function Login() {
                 <form onSubmit={handleSubmit}>
                     <div className="form-group" id="email">
                         <label>Email</label>
-                        <input ref={emailRef} type="email" required />
+                        <input className="auth-input" ref={emailRef} type="email" required />
                     </div>
                     <div className="form-group" id="password">
                         <label>Password</label>
-                        <input ref={passwordRef} type="password" required />
+                        <input className="auth-input" ref={passwordRef} type="password" required />
                     </div>
                     <button disable={loading} type="submit">Login</button>
                     <div>

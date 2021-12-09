@@ -57,31 +57,31 @@ function Signup() {
                     <form onSubmit={handleSubmit}>
                         <div className="form-group" id="firstName">
                             <label>First Name</label>
-                            <input ref={firstNameRef} type="text" required />
+                            <input className="auth-input" ref={firstNameRef} type="text" required />
                         </div>
                         <div className="form-group" id="lastName">
                             <label>Last Name</label>
-                            <input ref={lastNameRef} type="text" required />
+                            <input className="auth-input" ref={lastNameRef} type="text" required />
                         </div>
                         <div className="form-group" id="playerNumber">
                             <label>Player Number</label>
-                            <input ref={playerNumberRef} type="text" required />
+                            <input className="auth-input" ref={playerNumberRef} type="text" required />
                         </div>
                         <div className="form-group" id="phoneNumber">
                             <label>Phone Number</label>
-                            <input ref={phoneNumberRef} type="text" required />
+                            <input className="auth-input" ref={phoneNumberRef} type="text" required />
                         </div>
                         <div className="form-group" id="email">
                             <label>Email</label>
-                            <input ref={emailRef} type="email" required />
+                            <input className="auth-input" ref={emailRef} type="email" required />
                         </div>
                         <div className="form-group" id="password">
                             <label>Password</label>
-                            <input ref={passwordRef} type="password" required />
+                            <input className="auth-input" ref={passwordRef} type="password" required />
                         </div>
                         <div className="form-group" id="password-confirmation">
                             <label>Password Confirmation</label>
-                            <input ref={passwordConfirmRef} type="password" required />
+                            <input className="auth-input" ref={passwordConfirmRef} type="password" required />
                         </div>
                         <button disable={loading} type="submit">Sign Up</button>
                     </form>

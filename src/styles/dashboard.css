@@ -85,12 +85,51 @@
   flex: 3;
 }
 
+.player-root-container {
+  display: flex;
+  width: 100%;
+}
+
+.player-edit {
+  padding-right: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+.player-edit-odd {
+  background: var(--paleblue);
+}
+
+.player-edit-btn {
+  border: 0;
+}
+
+.player-root-container svg {
+  width: 20px;
+  height: 20px;
+}
+
+.player-root-container-odd svg {
+  background: var(--plaeblue);
+}
+
 .player-container {
+  width: 100%;
   display: flex;
   flex-direction: row;
   height: 50px;
   align-items: center;
   background: white;
+}
+
+.player-container input {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  height: 60%;
 }
 
 .player-container-odd {

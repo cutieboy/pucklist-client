@@ -47,7 +47,7 @@ function Roster() {
                     <p className="table-column table-large-column">Phone Number</p>
                     <p className="table-column table-large-column">USAH #</p>
                     <p className="table-column table-small-column">Status</p>
-                    <p className="table-column table-small-column">Number</p>
+                    <p className="table-column table-small-column" style={{marginRight: '50px'}}>Number</p>
                 </div>
             </div>
             {currentUserProfile.role === 'Admin' ? playerData.map((player) => {
