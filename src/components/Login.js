@@ -40,7 +40,7 @@ function Login() {
                         <label>Password</label>
                         <input className="auth-input" ref={passwordRef} type="password" required />
                     </div>
-                    <button disable={loading} type="submit">Login</button>
+                    <button className="auth-button" disable={loading} type="submit">Login</button>
                     <div>
                         <Link className="input-link" to="forgot-password">Forgot Password?</Link>
                     </div>

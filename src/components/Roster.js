@@ -4,6 +4,7 @@ import { useAuth } from '../contexts/AuthContext'
 //Components
 import Loader from './Loader'
 import Player from './Player'
+import PlayerAdmin from './PlayerAdmin'
 
 function Roster() {
     const { currentUser } = useAuth()
@@ -50,9 +51,10 @@ function Roster() {
                     <p className="table-column table-small-column" style={{marginRight: '50px'}}>Number</p>
                 </div>
             </div>
-            {currentUserProfile.role === 'Admin' ? playerData.map((player) => {
-                return <Player name={`${player.firstName} ${player.lastName}`} email={player.email} phoneNumber={player.phoneNumber} usah={player.usah} status={player.status} number={player.number} />
+            {currentUserProfile.role === 'Admin' ? playerData.map((player, i) => {
+                return <PlayerAdmin index={i} name={`${player.firstName} ${player.lastName}`} email={player.email} phoneNumber={player.phoneNumber} usah={player.usah} status={player.status} number={player.number} />
             }) : playerData.map((player, i) => {
+                if(player.email === currentUser.email) return <PlayerAdmin index={i} name={`${player.firstName} ${player.lastName}`} email={player.email} phoneNumber={player.phoneNumber} usah={player.usah} status={player.status} number={player.number} />
                 return <Player index={i} name={`${player.firstName} ${player.lastName}`} email={player.email} phoneNumber={player.phoneNumber} usah={player.usah} status={player.status} number={player.number} />
             })}
             </div>
