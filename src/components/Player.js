@@ -1,26 +1,66 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 
 function Player(props) {
     const { name, email, phoneNumber, usah, status, number, index } = props
     const [editable, setEditable] = useState(false)
-    const playerInput = useRef()
+    const [playerPhoneNumber, setPlayerPhoneNumber] = useState(phoneNumber)
+    const [playerUsah, setPlayerUsah] = useState(usah)
+    const [playerStatus, setPlayerStatus] = useState(status)
+    const [playerNumber, setPlayerNumber] = useState(number)
 
-    const handlePlayerSubmit = (e) => {
+    const playerInput = useRef()
+    const API = 'http://localhost:5000/api/players'
+
+    const handlePlayerSubmit = async(e) => {
         e.preventDefault()
-        console.log('you submitted some data!')
+        let reqBody = {}
+
+        if(e.target[0].value) {
+            reqBody.phoneNumber = e.target[0].value
+            setPlayerPhoneNumber(reqBody.phoneNumber)
+        }
+        if(e.target[1].value) {
+            reqBody.usah = e.target[1].value
+            setPlayerUsah(reqBody.usah)
+        }
+        if(e.target[2].value) {
+            reqBody.status = e.target[2].value
+            setPlayerStatus(reqBody.status)
+        }
+        if(e.target[3].value) {
+            reqBody.number = e.target[3].value
+            setPlayerNumber(reqBody.number)
+        }
+
+        try {
+            const response = await fetch(`${API}/${email}`, {
+                method: 'PATCH',
+                body: JSON.stringify(reqBody),
+                headers: { 'Content-Type': 'application/json' }
+            })
+
+            const data = await response.json()
+
+            console.log(data)
+        } catch(err) {
+            console.log({message: err})
+        }
     }
 
     if(index % 2) {
         if(editable) {
             return (
-            <form onSubmit={handlePlayerSubmit} className="player-root-container player-root-container-odd">
+            <form onSubmit={(e) => {
+                handlePlayerSubmit(e)
+                setEditable(false)
+            }} className="player-root-container player-root-container-odd">
                 <div ref={playerInput} className="player-container player-container-odd">
-                    <input type="text" placeholder={name} className="table-row table-large-column" />
-                    <input type="text" placeholder={email} className="table-row table-largest-column" />
-                    <input type="text" placeholder={phoneNumber} className="table-row table-large-column" />
-                    <input type="text" placeholder={usah} className="table-row table-large-column" />
-                    <input type="text" placeholder={status} className="table-row table-small-column" /> 
-                    <input type="text" placeholder={number} className="table-row table-small-column" />
+                    <p className="table-row table-large-column">{name}</p>
+                    <p className="table-row table-largest-column">{email}</p>
+                    <input type="text" placeholder={playerPhoneNumber} className="table-row table-large-column" />
+                    <input type="text" placeholder={playerUsah} className="table-row table-large-column" />
+                    <input type="text" placeholder={playerStatus} className="table-row table-small-column" /> 
+                    <input type="text" placeholder={playerNumber} className="table-row table-small-column" />
                 </div>
                 <button type="submit" className="player-edit player-edit-odd player-edit-btn">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,10 +81,10 @@ function Player(props) {
             <div ref={playerInput} className="player-container player-container-odd">
                 <p className="table-row table-large-column">{name}</p>
                 <p className="table-row table-largest-column">{email}</p>
-                <p className="table-row table-large-column">{phoneNumber}</p>
-                <p className="table-row table-large-column">{usah}</p>
-                <p className="table-row table-small-column">{status}</p>
-                <p className="table-row table-small-column">{number}</p>
+                <p className="table-row table-large-column">{playerPhoneNumber}</p>
+                <p className="table-row table-large-column">{playerUsah}</p>
+                <p className="table-row table-small-column">{playerStatus}</p>
+                <p className="table-row table-small-column">{playerNumber}</p>
             </div>
             <div className="player-edit player-edit-odd">
                 <svg></svg>
@@ -61,14 +101,17 @@ function Player(props) {
 
     if(editable) {
         return (
-        <form  onSubmit={handlePlayerSubmit} className="player-root-container">
+        <form  onSubmit={(e) => {
+            handlePlayerSubmit(e)
+            setEditable(false)
+        }} className="player-root-container">
             <div ref={playerInput} className="player-container">
-                <input type="text" placeholder={name} className="table-row table-large-column" />
-                <input type="text" placeholder={email} className="table-row table-largest-column" />
-                <input type="text" placeholder={phoneNumber} className="table-row table-large-column" />
-                <input type="text" placeholder={usah} className="table-row table-large-column" />
-                <input type="text" placeholder={status} className="table-row table-small-column" /> 
-                <input type="text" placeholder={number} className="table-row table-small-column" />
+                <p className="table-row table-large-column">{name}</p>
+                <p className="table-row table-largest-column">{email}</p>
+                <input type="text" placeholder={playerPhoneNumber} className="table-row table-large-column" />
+                <input type="text" placeholder={playerUsah} className="table-row table-large-column" />
+                <input type="text" placeholder={playerStatus} className="table-row table-small-column" /> 
+                <input type="text" placeholder={playerNumber} className="table-row table-small-column" />
             </div>
             <button type="submit" className="player-edit player-edit-btn">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -89,12 +132,12 @@ function Player(props) {
         <div ref={playerInput} className="player-container">
             <p className="table-row table-large-column">{name}</p>
             <p className="table-row table-largest-column">{email}</p>
-            <p className="table-row table-large-column">{phoneNumber}</p>
-            <p className="table-row table-large-column">{usah}</p>
-            <p className="table-row table-small-column">{status}</p>
-            <p className="table-row table-small-column">{number}</p>
+            <p className="table-row table-large-column">{playerPhoneNumber}</p>
+            <p className="table-row table-large-column">{playerUsah}</p>
+            <p className="table-row table-small-column">{playerStatus}</p>
+            <p className="table-row table-small-column">{playerNumber}</p>
         </div>
-        <div className="player-edit">
+        <div className="player-edit player-edit-blank">
             <svg></svg>
         </div>
         <div onClick={() => setEditable(true)} className="player-edit">

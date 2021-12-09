@@ -107,6 +107,10 @@
   border: 0;
 }
 
+.player-edit-blank {
+  cursor: auto;
+}
+
 .player-root-container svg {
   width: 20px;
   height: 20px;
