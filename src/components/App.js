@@ -2,7 +2,6 @@ import { AuthProvider } from '../contexts/AuthContext'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import PrivateRoute from './PrivateRoute'
 import Signup from './Signup'
-import Dashboard from './Dashboard'
 import Login from './Login'
 import UpdateProfile from './UpdateProfile'
 import ForgotPassword from './ForgotPassword'
@@ -15,6 +14,7 @@ import Roster from './Roster'
 
 //Styles
 import '../styles/App.css'
+import '../styles/dashboard.css'
 import TopNav from './TopNav'
 
 function App() {

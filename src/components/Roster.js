@@ -31,6 +31,7 @@ function Roster() {
 
     useEffect(() => {
         loadPlayerData(API)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if(isLoading) {
@@ -52,10 +53,10 @@ function Roster() {
                 </div>
             </div>
             {currentUserProfile.role === 'Admin' ? playerData.map((player, i) => {
-                return <PlayerAdmin index={i} name={`${player.firstName} ${player.lastName}`} email={player.email} phoneNumber={player.phoneNumber} usah={player.usah} status={player.status} number={player.number} />
+                return <PlayerAdmin key={`player-${i}`} index={i} name={`${player.firstName} ${player.lastName}`} email={player.email} phoneNumber={player.phoneNumber} usah={player.usah} status={player.status} number={player.number} />
             }) : playerData.map((player, i) => {
                 if(player.email === currentUser.email) return <PlayerAdmin index={i} name={`${player.firstName} ${player.lastName}`} email={player.email} phoneNumber={player.phoneNumber} usah={player.usah} status={player.status} number={player.number} />
-                return <Player index={i} name={`${player.firstName} ${player.lastName}`} email={player.email} phoneNumber={player.phoneNumber} usah={player.usah} status={player.status} number={player.number} />
+                return <Player key={`player-${i}`} index={i} name={`${player.firstName} ${player.lastName}`} email={player.email} phoneNumber={player.phoneNumber} usah={player.usah} status={player.status} number={player.number} />
             })}
             </div>
         </div>

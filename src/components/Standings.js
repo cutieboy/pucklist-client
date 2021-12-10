@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import TopNav from './TopNav'
 import Loader from './Loader'
 
 function Standings() {
@@ -45,7 +44,7 @@ function Standings() {
                     </div>
                     {standingsData.map((team, i) => {
                         if(i % 2) {
-                            return <div className="player-container player-container-odd">
+                            return <div key={`team-${i}`} className="player-container player-container-odd">
                                 <p className="table-row table-large-column" style={{color: 'var(--lightblue)'}}>{team.team}</p>
                                 <p className="table-row table-small-column">{team.gp}</p>
                                 <p className="table-row table-small-column">{team.w}</p>
@@ -58,7 +57,7 @@ function Standings() {
                             </div>
                         }
 
-                        return <div className="player-container">
+                        return <div key={`team-${i}`} className="player-container">
                                 <p className="table-row table-large-column" style={{color: 'var(--lightblue)'}}>{team.team}</p>
                                 <p className="table-row table-small-column">{team.gp}</p>
                                 <p className="table-row table-small-column">{team.w}</p>

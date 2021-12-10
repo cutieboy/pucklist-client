@@ -18,12 +18,13 @@ function TopNav() {
 
     useEffect(() => {
         findUser()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
         <div className="top-nav-container">
             <div className="profile-container">
-                <img className="profile-pic" src="profile-pic-test.png" />
+                <img alt="profile" className="profile-pic" src="profile-pic-test.png" />
                 {currentUser && <p>{displayName}</p>}
             </div>
         </div>

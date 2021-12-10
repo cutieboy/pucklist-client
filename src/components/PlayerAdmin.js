@@ -15,35 +15,48 @@ function PlayerAdmin(props) {
         e.preventDefault()
         let reqBody = {}
 
-        if(e.target[0].value) {
-            reqBody.phoneNumber = e.target[0].value
-            setPlayerPhoneNumber(reqBody.phoneNumber)
-        }
-        if(e.target[1].value) {
-            reqBody.usah = e.target[1].value
-            setPlayerUsah(reqBody.usah)
-        }
-        if(e.target[2].value) {
-            reqBody.status = e.target[2].value
-            setPlayerStatus(reqBody.status)
-        }
-        if(e.target[3].value) {
-            reqBody.number = e.target[3].value
-            setPlayerNumber(reqBody.number)
+        const changePlayerState = async() => {
+            if(reqBody.phoneNumber) {
+                setPlayerPhoneNumber(reqBody.phoneNumber)
+            }
+            if(reqBody.usah) {
+                setPlayerUsah(reqBody.usah)
+            }
+            if(reqBody.status) {
+                setPlayerStatus(reqBody.status)
+            }
+            if(reqBody.number) {
+                setPlayerNumber(reqBody.number)
+            }
         }
 
         try {
+            if(e.target[0].value) {
+                reqBody.phoneNumber = e.target[0].value
+            }
+            if(e.target[1].value) {
+                reqBody.usah = e.target[1].value
+            }
+            if(e.target[2].value) {
+                reqBody.status = e.target[2].value
+            }
+            if(e.target[3].value) {
+                reqBody.number = e.target[3].value
+            }
+
             const response = await fetch(`${API}/${email}`, {
                 method: 'PATCH',
                 body: JSON.stringify(reqBody),
                 headers: { 'Content-Type': 'application/json' }
             })
+            if(response.ok) {
+                changePlayerState()
+            }
 
-            const data = await response.json()
-
-            console.log(data)
+            reqBody = {}
         } catch(err) {
             console.log({message: err})
+            reqBody = {}
         }
     }
 

@@ -50,7 +50,7 @@ function Stats() {
                     </div>
                     {playerData.map((player, i) => {
                         if(i % 2) {
-                            return <div className="player-container player-container-odd">
+                            return <div key={`player-${i}`} className="player-container player-container-odd">
                             <p className="table-row table-large-column" style={{color: 'var(--lightblue)'}}>{player.name}</p>
                             <p className="table-row table-small-column">{player.number}</p>
                             <p className="table-row table-small-column">{player.gamesPlayed}</p>
@@ -68,7 +68,7 @@ function Stats() {
                         </div>
                         }
 
-                        return <div className="player-container">
+                        return <div key={`player-${i}`} className="player-container">
                             <p className="table-row table-large-column" style={{color: 'var(--lightblue)'}}>{player.name}</p>
                             <p className="table-row table-small-column">{player.number}</p>
                             <p className="table-row table-small-column">{player.gamesPlayed}</p>
