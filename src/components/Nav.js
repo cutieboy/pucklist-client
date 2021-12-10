@@ -23,6 +23,7 @@ function Nav() {
     return (
         <nav className="nav-container">
             <h2 className="nav-title">Pucklist</h2>
+            {error && <div>error</div>}
             <p className="nav-section-title">Hockey</p>
             <NavLink activeClassName={splitLocation[1] === "" ? "active-link" : ""} to="/" className="nav-link-container">
                 <div className="nav-icon-container">
