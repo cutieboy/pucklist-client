@@ -5,6 +5,7 @@ import { useAuth } from '../contexts/AuthContext'
 import Loader from './Loader'
 import Player from './Player'
 import PlayerAdmin from './PlayerAdmin'
+import PlayerAdd from './PlayerAdd'
 
 function Roster() {
     const { currentUser } = useAuth()
@@ -12,10 +13,11 @@ function Roster() {
     const [isLoading, setIsLoading] = useState(true)
     const [playerData, setPlayerData] = useState([])
     const [currentUserProfile, setCurrentUserProfile] = useState({})
+    let playerIndex = 0
 
-    const API = 'http://localhost:5000/api/players'
+    const loadPlayerData = async() => {
+        const API = 'http://localhost:5000/api/players'
 
-    const loadPlayerData = async(API) => {
         const response = await fetch(API)
         const data = await response.json()
 
@@ -30,7 +32,7 @@ function Roster() {
     }
 
     useEffect(() => {
-        loadPlayerData(API)
+        loadPlayerData()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -53,11 +55,14 @@ function Roster() {
                 </div>
             </div>
             {currentUserProfile.role === 'Admin' ? playerData.map((player, i) => {
+                playerIndex = i
                 return <PlayerAdmin key={`player-${i}`} index={i} name={`${player.firstName} ${player.lastName}`} email={player.email} phoneNumber={player.phoneNumber} usah={player.usah} status={player.status} number={player.number} />
             }) : playerData.map((player, i) => {
+                playerIndex = i
                 if(player.email === currentUser.email) return <PlayerAdmin index={i} name={`${player.firstName} ${player.lastName}`} email={player.email} phoneNumber={player.phoneNumber} usah={player.usah} status={player.status} number={player.number} />
                 return <Player key={`player-${i}`} index={i} name={`${player.firstName} ${player.lastName}`} email={player.email} phoneNumber={player.phoneNumber} usah={player.usah} status={player.status} number={player.number} />
             })}
+            {currentUserProfile.role === 'Admin' && <PlayerAdd reload={loadPlayerData} />}
             </div>
         </div>
     )

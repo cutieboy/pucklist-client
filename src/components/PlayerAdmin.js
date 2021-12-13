@@ -71,8 +71,14 @@ function PlayerAdmin(props) {
                     <p className="table-row table-large-column">{name}</p>
                     <p className="table-row table-largest-column">{email}</p>
                     <input type="text" placeholder={playerPhoneNumber} className="table-row table-large-column" />
-                    <input type="text" placeholder={playerUsah} className="table-row table-large-column" />
-                    <input type="text" placeholder={playerStatus} className="table-row table-small-column" /> 
+                    <input type="text" placeholder={playerUsah ? playerUsah : "USAH #"} className="table-row table-large-column" />
+                    <select name="status" id="status" className="table-row table-small-column table-dropdown">
+                        <option name="status" id="status">Full</option>
+                        <option value="Half">Half</option>
+                        <option value="Sub">Sub</option>
+                        <option value="Inactive">Inactive</option>
+                        <option value="Other">Other</option>
+                    </select>
                     <input type="text" placeholder={playerNumber} className="table-row table-small-column" />
                 </div>
                 <button type="submit" className="player-edit player-edit-odd player-edit-btn">
