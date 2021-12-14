@@ -68,7 +68,7 @@ function PlayerAdmin(props) {
                 setEditable(false)
             }} className="player-root-container player-root-container-odd">
                 <div ref={playerInput} className="player-container player-container-odd">
-                    <p className="table-row table-large-column">{name}</p>
+                    <p className="table-row table-large-column" style={{color: "var(--lightblue)"}}>{name}</p>
                     <p className="table-row table-largest-column">{email}</p>
                     <input type="text" placeholder={playerPhoneNumber} className="table-row table-large-column" />
                     <input type="text" placeholder={playerUsah ? playerUsah : "USAH #"} className="table-row table-large-column" />
@@ -98,7 +98,7 @@ function PlayerAdmin(props) {
         return (
         <div className="player-root-container">
             <div ref={playerInput} className="player-container player-container-odd">
-                <p className="table-row table-large-column">{name}</p>
+                <p className="table-row table-large-column" style={{color: "var(--lightblue)"}}>{name}</p>
                 <p className="table-row table-largest-column">{email}</p>
                 <p className="table-row table-large-column">{playerPhoneNumber}</p>
                 <p className="table-row table-large-column">{playerUsah}</p>
@@ -125,7 +125,7 @@ function PlayerAdmin(props) {
             setEditable(false)
         }} className="player-root-container">
             <div ref={playerInput} className="player-container">
-                <p className="table-row table-large-column">{name}</p>
+                <p className="table-row table-large-column" style={{color: "var(--lightblue)"}}>{name}</p>
                 <p className="table-row table-largest-column">{email}</p>
                 <input type="text" placeholder={playerPhoneNumber} className="table-row table-large-column" />
                 <input type="text" placeholder={playerUsah} className="table-row table-large-column" />
@@ -149,7 +149,7 @@ function PlayerAdmin(props) {
     return (
     <div className="player-root-container">
         <div ref={playerInput} className="player-container">
-            <p className="table-row table-large-column">{name}</p>
+            <p className="table-row table-large-column" style={{color: "var(--lightblue)"}}>{name}</p>
             <p className="table-row table-largest-column">{email}</p>
             <p className="table-row table-large-column">{playerPhoneNumber}</p>
             <p className="table-row table-large-column">{playerUsah}</p>

@@ -70,6 +70,7 @@
   margin: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
@@ -85,6 +86,10 @@
 
 .table-small-column {
   flex: 1;
+}
+
+.table-medium-column {
+  flex: 1.5;
 }
 
 .table-large-column {
@@ -172,4 +177,39 @@
 
 .player-add-new-btn:hover svg path {
   fill: white;
+}
+
+.game-column {
+  font-size: 13px;
+  text-align: center;
+}
+
+.game-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 60px;
+  font-size: 13px;
+}
+
+.game-btn-container {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.game-btn {
+  cursor: pointer;
+  color: white;
+  background: var(--lightblue);
+  border: 0;
+  border-radius: 5px;
+  width: 70px;
+  height: 35px;
+  transition: all 0.1s ease;
+}
+
+.game-btn:hover {
+  background: var(--lightbluehover);
 }
