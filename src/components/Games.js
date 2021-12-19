@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { useAuth } from '../contexts/AuthContext'
+import { motion } from 'framer-motion'
 
 //Components
 import Loader from './Loader'
 import Game from './Game'
 
-function Games() {
+function Games(props) {
     const { currentUser } = useAuth()
 
     const [isLoading, setIsLoading] = useState(true)
     const [gameData, setGameData] = useState([])
     const [currentUserProfile, setCurrentUserProfile] = useState({})
+
+    const { transitions } = props
 
     const loadGameData = async() => {
         const gameAPI = 'http://localhost:5000/api/games'
@@ -32,7 +35,7 @@ function Games() {
     useEffect(() => {
         loadGameData()
     }, [])
-    
+
     if(isLoading) {
         return <Loader />
     }
@@ -40,8 +43,22 @@ function Games() {
     return (
         <div className="dashboard">
             <div className="content-container">
-                <h3 className="content-title">Games</h3>
-                <div className="content table-container">
+                <motion.h3 
+                className="content-title"
+                exit="out"
+                animate="in"
+                initial="out"
+                variants={transitions}
+                transition={{type: 'spring', bounce: '0.1', duration: 0.3}}
+                >Games</motion.h3>
+                <motion.div 
+                className="content table-container"
+                exit="out"
+                animate="in"
+                initial="out"
+                variants={transitions}
+                transition={{type: 'spring', bounce: '0.1', duration: 0.3}}
+                >
                     <div className="table-header">
                         <p className="table-column table-small-column game-column game-btn-container"></p>
                         <p className="table-column table-small-column game-column">Date</p>
@@ -57,7 +74,7 @@ function Games() {
                     {gameData.map((game, i) => {
                         return <Game currentUserProfile={currentUserProfile} game={game} gameIndex={i} />
                     })}
-                </div>
+                </motion.div>
             </div>
         </div>
     )

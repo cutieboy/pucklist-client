@@ -2,8 +2,9 @@ import React, { useRef, useState } from 'react'
 import { Form, Alert } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
-function UpdateProfile() {
+function UpdateProfile(props) {
     const emailRef = useRef()
     const passwordRef = useRef()
     const confirmPasswordRef = useRef()
@@ -11,6 +12,7 @@ function UpdateProfile() {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const history = useHistory()
+    const { transitions } = props
 
     function handleUpdateProfile(e) {
         e.preventDefault()
@@ -38,7 +40,14 @@ function UpdateProfile() {
     return (
         <>
             <div className="input-root">
-                <div className="input-container">
+                <motion.div 
+                    className="input-container"
+                    exit="out"
+                    animate="in"
+                    initial="out"
+                    variants={transitions}
+                    transition={{type: 'spring', bounce: '0.05', duration: 0.3}}
+                >
                     {error && <Alert variant="danger">{error}</Alert>}
                     <form onSubmit={handleUpdateProfile}>
                         <div className="form-group" id="email">
@@ -55,7 +64,7 @@ function UpdateProfile() {
                         </div>
                         <button disable={loading} className="input-link" style={{color: 'white'}} type="submit">Update</button>
                     </form>
-                </div>
+                </motion.div>
             </div>
             <div className="w-100 text-center mt-2">
                 <Link to="/">Cancel</Link>

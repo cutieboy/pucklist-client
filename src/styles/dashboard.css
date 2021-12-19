@@ -180,7 +180,7 @@
 }
 
 .game-column {
-  font-size: 13px;
+  font-size: 14px;
   text-align: center;
 }
 
@@ -190,7 +190,7 @@
   justify-content: center;
   flex-wrap: wrap;
   height: 60px;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .game-btn-container {

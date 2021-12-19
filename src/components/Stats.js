@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react'
+import { motion } from 'framer-motion'
 
 //Components
 import Loader from './Loader'
 
-function Stats() {
+function Stats(props) {
     const [isLoading, setIsLoading] = useState(true)
     const [playerData, setPlayerData] = useState([])
+    const { transitions } = props
 
     const API = 'http://localhost:5000/api/stats'
 
@@ -30,8 +32,22 @@ function Stats() {
     return (
         <div className="dashboard">
             <div className="content-container">
-                <h3 className="content-title">Stats</h3>
-                <div className="content table-container">
+            <motion.h3 
+                className="content-title"
+                exit="out"
+                animate="in"
+                initial="out"
+                variants={transitions}
+                transition={{type: 'spring', bounce: '0.1', duration: 0.3}}
+            >Stats</motion.h3>
+                <motion.div 
+                className="content table-container"
+                exit="out"
+                animate="in"
+                initial="out"
+                variants={transitions}
+                transition={{type: 'spring', bounce: '0.05', duration: 0.3}}
+                >
                     <div className="table-header">
                         <p className="table-column table-large-column">Player</p>
                         <p className="table-column table-small-column">#</p>
@@ -85,7 +101,7 @@ function Stats() {
                             <p className="table-row table-small-column">{player.points}</p>
                         </div>
                     })}
-                </div>
+                </motion.div>
             </div>
         </div>
     )

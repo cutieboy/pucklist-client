@@ -1,10 +1,13 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Loader from './Loader'
+import { motion } from 'framer-motion'
 
-function Standings() {
+function Standings(props) {
     const [isLoading, setIsLoading] = useState(true)
     const [standingsData, setStandingsData] = useState([])
+
+    const { transitions } = props
 
     const API = 'http://localhost:5000/api/standings'
 
@@ -29,8 +32,22 @@ function Standings() {
     return (
         <div className="dashboard">
             <div className="content-container">
-                <h3 className="content-title">Standings</h3>
-                <div className="content table-container">
+            <motion.h3 
+                className="content-title"
+                exit="out"
+                animate="in"
+                initial="out"
+                variants={transitions}
+                transition={{type: 'spring', bounce: '0.1', duration: 0.3}}
+                >Standings</motion.h3>
+                <motion.div 
+                className="content table-container"
+                exit="out"
+                animate="in"
+                initial="out"
+                variants={transitions}
+                transition={{type: 'spring', bounce: '0.05', duration: 0.3}}
+                >
                     <div className="table-header">
                         <p className="table-column table-large-column">Team</p>
                         <p className="table-column table-small-column">GP</p>
@@ -70,7 +87,7 @@ function Standings() {
                             </div>
                     })
                 }
-                </div>
+                </motion.div>
             </div>
         </div>
     )
