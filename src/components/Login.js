@@ -2,15 +2,18 @@ import React, { useRef, useState } from 'react'
 import { Alert } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import '../styles/login.css'
 
-function Login() {
+function Login(props) {
     const emailRef = useRef()
     const passwordRef = useRef()
     const { login } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const history = useHistory()
+
+    const { transitions } = props
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -28,8 +31,15 @@ function Login() {
     
     return (
         <div className="input-root">
-            <div className="login-container input-container">
-                <h2>Login</h2>
+            <motion.div 
+                className="login-container input-container"
+                exit="out"
+                animate="in"
+                initial="out"
+                variants={transitions}
+                transition={{type: 'spring', bounce: '0.05', duration: 0.3}}
+            >
+                <h3 className="content-title">Login</h3>
                 {error && <Alert variant="danger">{error}</Alert>}
                 <form onSubmit={handleSubmit}>
                     <div className="form-group" id="email">
@@ -45,7 +55,7 @@ function Login() {
                         <Link className="input-link" to="forgot-password">Forgot Password?</Link>
                     </div>
                 </form>
-            </div>
+            </motion.div>
             <div className="input-nav">
                 Don't have an account? <Link className="input-link" to="/signup">Sign Up</Link>
             </div>

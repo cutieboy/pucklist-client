@@ -38,7 +38,7 @@ function Stats(props) {
                 animate="in"
                 initial="out"
                 variants={transitions}
-                transition={{type: 'spring', bounce: '0.1', duration: 0.3}}
+                transition={{type: 'spring', bounce: '0.1', duration: 0.2}}
             >Stats</motion.h3>
                 <motion.div 
                 className="content table-container"
@@ -46,7 +46,7 @@ function Stats(props) {
                 animate="in"
                 initial="out"
                 variants={transitions}
-                transition={{type: 'spring', bounce: '0.05', duration: 0.3}}
+                transition={{type: 'spring', bounce: '0.05', duration: 0.2}}
                 >
                     <div className="table-header">
                         <p className="table-column table-large-column">Player</p>

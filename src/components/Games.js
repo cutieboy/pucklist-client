@@ -22,12 +22,15 @@ function Games(props) {
         const gameResponse = await fetch(gameAPI)
         const gameResponseData = await gameResponse.json()
 
+        gameResponseData.sort((a, b) => {
+            return new Date(a.date.split(' ')[1]) - new Date(b.date.split(' '[1]))
+        })
+
         const playerResponse = await fetch(playerAPI)
         const playerResponseData = await playerResponse.json()
+        if(currentUser) setCurrentUserProfile(playerResponseData.find(player => player.email === currentUser.email))
 
         setGameData(gameResponseData)
-        setCurrentUserProfile(playerResponseData.find(player => player.email === currentUser.email))
-        console.log(gameResponseData)
 
         setIsLoading(false)
     }
@@ -49,7 +52,7 @@ function Games(props) {
                 animate="in"
                 initial="out"
                 variants={transitions}
-                transition={{type: 'spring', bounce: '0.1', duration: 0.3}}
+                transition={{type: 'spring', bounce: '0.1', duration: 0.2}}
                 >Games</motion.h3>
                 <motion.div 
                 className="content table-container"
@@ -57,7 +60,7 @@ function Games(props) {
                 animate="in"
                 initial="out"
                 variants={transitions}
-                transition={{type: 'spring', bounce: '0.1', duration: 0.3}}
+                transition={{type: 'spring', bounce: '0.1', duration: 0.2}}
                 >
                     <div className="table-header">
                         <p className="table-column table-small-column game-column game-btn-container"></p>
@@ -72,7 +75,7 @@ function Games(props) {
                         <p className="table-column table-small-column game-column">Playing</p>
                     </div>
                     {gameData.map((game, i) => {
-                        return <Game currentUserProfile={currentUserProfile} game={game} gameIndex={i} />
+                        return <Game reload={loadGameData} currentUserProfile={currentUserProfile} game={game} gameIndex={i} />
                     })}
                 </motion.div>
             </div>

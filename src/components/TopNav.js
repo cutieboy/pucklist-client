@@ -4,6 +4,7 @@ import { useAuth } from '../contexts/AuthContext'
 import '../styles/nav.css'
 
 function TopNav() {
+    //TODO: Find a better way to store the display name ?? maybe useEffectOnce or store displayName upon login
     const { currentUser, getUserData } = useAuth()
     const [displayName, setDisplayName] = useState('')
 
@@ -16,10 +17,9 @@ function TopNav() {
         }
     }
 
-    useEffect(() => {
+    if(currentUser) {
         findUser()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }
 
     return (
         <div className="top-nav-container">

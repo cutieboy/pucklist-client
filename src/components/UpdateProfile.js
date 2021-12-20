@@ -49,6 +49,7 @@ function UpdateProfile(props) {
                     transition={{type: 'spring', bounce: '0.05', duration: 0.3}}
                 >
                     {error && <Alert variant="danger">{error}</Alert>}
+                    <h3 className="content-title">Update Profile</h3>
                     <form onSubmit={handleUpdateProfile}>
                         <div className="form-group" id="email">
                             <Form.Label>Email</Form.Label>
@@ -62,12 +63,9 @@ function UpdateProfile(props) {
                             <Form.Label>Confirm Password</Form.Label>
                             <Form.Control className="auth-input" ref={confirmPasswordRef} type="password" placeholder="Passwords must match" />
                         </div>
-                        <button disable={loading} className="input-link" style={{color: 'white'}} type="submit">Update</button>
+                        <button disable={loading} className="auth-button" style={{color: 'white'}} type="submit">Update</button>
                     </form>
                 </motion.div>
-            </div>
-            <div className="w-100 text-center mt-2">
-                <Link to="/">Cancel</Link>
             </div>
         </>
     )

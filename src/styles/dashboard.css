@@ -186,11 +186,76 @@
 
 .game-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   height: 60px;
   font-size: 14px;
+}
+
+.game-view-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.game-details {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 400px;
+  width: 100%;
+}
+
+.game-details-status {
+  margin: 10px;
+  border-radius: 5px;
+  flex: 1;
+}
+
+.game-details-status h3 {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.game-view-player {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-bottom: 1px solid black;
+}
+
+.game-view-name {
+  margin: 0;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.game-view-status {
+  margin-left: auto;
+}
+
+.game-view-status button {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  opacity: 0.5;
+  border: 0;
+  margin-left: 5px;
+  transition: opacity 0.05s ease;
+  cursor: pointer;
+}
+
+.game-view-status button:hover {
+  opacity: 1;
 }
 
 .game-btn-container {

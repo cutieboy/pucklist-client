@@ -42,14 +42,14 @@ function App() {
                 <TopNav />
                 <AnimatePresence exitBeforeEnter>
                   <Switch location={location} key={location.pathname}>
-                    <PrivateRoute exact path="/"><Games transitions={pageTransitions} /></PrivateRoute>
-                    <PrivateRoute path="/standings"><Standings transitions={pageTransitions} /></PrivateRoute>
-                    <PrivateRoute path="/stats"><Stats transitions={pageTransitions} /></PrivateRoute>
-                    <PrivateRoute path="/roster"><Roster transitions={pageTransitions} /></PrivateRoute>
-                    <PrivateRoute path="/update-profile"><UpdateProfile transitions={pageTransitions} /></PrivateRoute>
-                    <Route path="/signup" component={Signup} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/forgot-password" component={ForgotPassword} />
+                    <PrivateRoute exact path="/" component={Games} />
+                    <PrivateRoute path="/standings" component={Standings} />
+                    <PrivateRoute path="/stats" component={Stats} />
+                    <PrivateRoute path="/roster" component={Roster} />
+                    <PrivateRoute path="/update-profile" component={UpdateProfile} />
+                    <Route path="/signup" component={Signup}><Signup transitions={pageTransitions} /></Route>
+                    <Route path="/login" component={Login}><Login transitions={pageTransitions} /></Route>
+                    <Route path="/forgot-password" component={ForgotPassword}><ForgotPassword transitions={pageTransitions} /></Route>
                   </Switch>
                 </AnimatePresence>
               </div>

@@ -2,9 +2,10 @@ import React, { useRef, useState } from 'react'
 import { Alert } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import '../styles/login.css'
 
-function Signup() {
+function Signup(props) {
     const firstNameRef = useRef()
     const lastNameRef = useRef()
     const playerNumberRef = useRef()
@@ -16,6 +17,8 @@ function Signup() {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const history = useHistory()
+
+    const { transitions } = props
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -51,8 +54,15 @@ function Signup() {
     return (
         <>
             <div className="input-root">
-                <div className="input-container signup-container">
-                    <h2 className="text-center mb-4">Sign Up</h2>
+                <motion.div
+                className="input-container signup-container"
+                exit="out"
+                animate="in"
+                initial="out"
+                variants={transitions}
+                transition={{type: 'spring', bounce: '0.05', duration: 0.3}}
+                >
+                    <h3 className="content-title">Sign Up</h3>
                     {error && <Alert variant="danger">{error}</Alert>}
                     <form onSubmit={handleSubmit}>
                         <div className="form-group" id="firstName">
@@ -69,7 +79,7 @@ function Signup() {
                         </div>
                         <div className="form-group" id="phoneNumber">
                             <label>Phone Number</label>
-                            <input className="auth-input" ref={phoneNumberRef} type="text" required />
+                            <input className="auth-input" ref={phoneNumberRef} placeholder="ex. 4081234567" type="text" required />
                         </div>
                         <div className="form-group" id="email">
                             <label>Email</label>
@@ -83,9 +93,9 @@ function Signup() {
                             <label>Password Confirmation</label>
                             <input className="auth-input" ref={passwordConfirmRef} type="password" required />
                         </div>
-                        <button disable={loading} type="submit">Sign Up</button>
+                        <button disable={loading} className="auth-button" type="submit">Sign Up</button>
                     </form>
-                </div>
+                </motion.div>
                 <div className="input-nav">
                 Already have an account? <Link className="input-link" to="/login">Log In</Link>
                 </div>

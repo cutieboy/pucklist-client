@@ -7,6 +7,7 @@ function PlayerAdd(props) {
 
     const playerInput = useRef()
     const API = 'http://localhost:5000/api/players'
+    const gameAPI = 'http://localhost:5000/api/games'
 
     const handlePlayerSubmit = async(e) => {
         e.preventDefault()
@@ -37,10 +38,29 @@ function PlayerAdd(props) {
 
 
         try {
-            const response = await fetch(API, {
+            const playerResponse = await fetch(API, {
                 method: 'POST',
                 body: JSON.stringify(reqBody),
                 headers: { 'Content-Type': 'application/json' }
+            })
+
+            console.log(playerResponse)
+
+            const gameResponse = await fetch(gameAPI)
+            const gameData = await gameResponse.json()
+
+            gameData.forEach(async game => {
+                const player = await fetch(`${API}/${reqBody.email}`)
+                const playerData = await player.json()
+
+                let isUndecided = game.isUndecided
+                isUndecided.push(playerData)
+
+                const gameDataResponse = await fetch(`${gameAPI}/${game.number}`, {
+                    method: 'PATCH',
+                    body: JSON.stringify({isUndecided: isUndecided}),
+                    headers: { 'Content-Type': 'application/json' }
+                })
             })
 
             await reload()
